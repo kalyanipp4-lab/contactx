@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Admin = () => {
+
+  const navigate =
+    useNavigate();
 
   const [users, setUsers] =
     useState([]);
@@ -77,7 +81,7 @@ const Admin = () => {
 
     localStorage.clear();
 
-    window.location.href = "/login";
+    navigate("/");
 
   };
 
@@ -290,64 +294,66 @@ const Admin = () => {
                 "0 6px 18px rgba(0,0,0,0.08)",
             }}
           >
-<div>
 
-  <h3>
-    {user.username}
-  </h3>
+            <div>
 
-  <p>
-    {user.email}
-  </p>
+              <h3>
+                {user.username}
+              </h3>
 
-</div>
+              <p>
+                {user.email}
+              </p>
 
-<div
-  style={{
-    display: "flex",
-    gap: "10px",
-  }}
->
+            </div>
 
-  <button
-    style={viewBtn}
+            <div
+              style={{
+                display: "flex",
+                gap: "10px",
+              }}
+            >
 
-    onClick={() =>
-      setSelectedUser(user)
-    }
-  >
-    View
-  </button>
+              <button
+                style={viewBtn}
 
-  <button
-    style={deleteBtn}
+                onClick={() =>
+                  setSelectedUser(user)
+                }
+              >
+                View
+              </button>
 
-    onClick={async () => {
+              <button
+                style={deleteBtn}
 
-      try {
+                onClick={async () => {
 
-        await axios.delete(
-          `https://contactx-backend-3.onrender.com/api/users/${user._id}`
-        );
+                  try {
 
-        fetchUsers();
+                    await axios.delete(
+                      `https://contactx-backend-3.onrender.com/api/users/${user._id}`
+                    );
 
-        alert(
-          "User Deleted"
-        );
+                    fetchUsers();
 
-      } catch (error) {
+                    alert(
+                      "User Deleted"
+                    );
 
-        console.log(error);
+                  } catch (error) {
 
-      }
+                    console.log(error);
 
-    }}
-  >
-    Delete
-  </button>
+                  }
 
-</div>
+                }}
+              >
+                Delete
+              </button>
+
+            </div>
+
           </div>
         ))
       }
@@ -544,6 +550,7 @@ const viewBtn = {
 
   fontWeight: "bold",
 };
+
 const deleteBtn = {
 
   padding: "10px 18px",
@@ -560,4 +567,5 @@ const deleteBtn = {
 
   fontWeight: "bold",
 };
+
 export default Admin;
