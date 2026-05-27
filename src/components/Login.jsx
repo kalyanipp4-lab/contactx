@@ -37,7 +37,7 @@ const Login = () => {
 
         const adminResponse =
           await axios.post(
-            "http://localhost:5000/api/admin/login",
+            "https://contactx-backend-3.onrender.com/api/admin/login",
             {
               email,
               password,
@@ -65,7 +65,7 @@ const Login = () => {
 
       const response =
         await axios.post(
-          "http://localhost:5000/api/login",
+          "https://contactx-backend-3.onrender.com/api/login",
           {
             email,
             password,

@@ -45,7 +45,7 @@ const Signup = () => {
       // Backend API call
       const response =
         await axios.post(
-          "http://localhost:5000/api/signup",
+          "https://contactx-backend-3.onrender.com/api/signup",
           {
             username,
             email,

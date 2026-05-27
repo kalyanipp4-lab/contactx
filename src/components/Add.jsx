@@ -83,7 +83,7 @@ const Add = () => {
 
       // SAVE TO BACKEND
       await axios.post(
-        "http://localhost:5000/api/contacts",
+        "https://contactx-backend-3.onrender.com/api/contacts",
         newContact
       );
 

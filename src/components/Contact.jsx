@@ -45,7 +45,7 @@ const ContactList = () => {
 
       const response =
         await axios.get(
-          "http://localhost:5000/api/contacts"
+          "https://contactx-backend-3.onrender.com/api/contacts"
         );
 
       setContacts(response.data);

@@ -53,7 +53,7 @@ const CategoryPage = () => {
 
     const response =
       await axios.get(
-        `http://localhost:5000/api/contacts?userEmail=${userEmail}`
+        `https://contactx-backend-3.onrender.com/api/contacts?userEmail=${userEmail}`
       );
 
     const filtered =
@@ -83,7 +83,7 @@ const CategoryPage = () => {
     try {
 
       await axios.delete(
-        `http://localhost:5000/api/contacts/${id}`
+        `https://contactx-backend-3.onrender.com/api/contacts/${id}`
       );
 
       fetchContacts();
@@ -105,7 +105,7 @@ const CategoryPage = () => {
     try {
 
       await axios.put(
-        `http://localhost:5000/api/contacts/${id}`,
+        `https://contactx-backend-3.onrender.com/api/contacts/${id}`,
         editedContact
       );
 

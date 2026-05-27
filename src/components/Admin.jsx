@@ -29,7 +29,7 @@ const Admin = () => {
 
       const response =
         await axios.get(
-          "http://localhost:5000/api/users"
+          "https://contactx-backend-3.onrender.com/api/users"
         );
 
       setUsers(response.data);
@@ -50,7 +50,7 @@ const Admin = () => {
 
       const response =
         await axios.get(
-          "http://localhost:5000/api/contacts"
+          "https://contactx-backend-3.onrender.com/api/contacts"
         );
 
       setContacts(response.data);
@@ -327,7 +327,7 @@ const Admin = () => {
       try {
 
         await axios.delete(
-          `http://localhost:5000/api/users/${user._id}`
+          `https://contactx-backend-3.onrender.com/api/users/${user._id}`
         );
 
         fetchUsers();

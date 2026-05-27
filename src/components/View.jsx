@@ -43,7 +43,7 @@ const View = () => {
 
       const response =
         await axios.get(
-          `http://localhost:5000/api/contacts?userEmail=${userEmail}`
+          `https://contactx-backend-3.onrender.com/api/contacts?userEmail=${userEmail}`
         );
 
       setContacts(response.data);
@@ -65,7 +65,7 @@ const View = () => {
     try {
 
       await axios.delete(
-        `http://localhost:5000/api/contacts/${id}`
+        `https://contactx-backend-3.onrender.com/api/contacts/${id}`
       );
 
       fetchContacts();
@@ -101,7 +101,7 @@ const View = () => {
     try {
 
       await axios.put(
-        `http://localhost:5000/api/contacts/${id}`,
+        `https://contactx-backend-3.onrender.com/api/contacts/${id}`,
         editedContact
       );
 
