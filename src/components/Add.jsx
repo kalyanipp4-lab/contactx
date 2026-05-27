@@ -26,7 +26,9 @@ const Add = () => {
 
   // CURRENT LOGGED USER EMAIL
   const userEmail =
-    localStorage.getItem("userEmail");
+    localStorage.getItem(
+      "userEmail"
+    );
 
   // DEFAULT CATEGORIES
   const categories =
@@ -39,7 +41,8 @@ const Add = () => {
       "Personal",
     ];
 
-  // SAVE CONTACT
+  /* ================= SAVE CONTACT ================= */
+
   const handleSave = async () => {
 
     // VALIDATION
@@ -51,7 +54,10 @@ const Add = () => {
       !category
     ) {
 
-      alert("Please fill all fields");
+      alert(
+        "Please fill all fields"
+      );
+
       return;
 
     }
@@ -67,18 +73,31 @@ const Add = () => {
 
     }
 
-   const newContact = {
-  name,
-  phone,
-  email,
-  address,
-  category,
+    // USER EMAIL CHECK
+    if (!userEmail) {
 
-  userEmail:
-    localStorage.getItem(
-      "userEmail"
-    ),
-};
+      alert(
+        "User not logged in"
+      );
+
+      navigate("/login");
+
+      return;
+
+    }
+
+    // NEW CONTACT OBJECT
+    const newContact = {
+
+      name,
+      phone,
+      email,
+      address,
+      category,
+      userEmail,
+
+    };
+
     try {
 
       // SAVE TO BACKEND
@@ -100,7 +119,9 @@ const Add = () => {
 
       console.log(error);
 
-      alert("Error saving contact");
+      alert(
+        "Error saving contact"
+      );
 
     }
 
@@ -126,7 +147,8 @@ const Add = () => {
           borderRadius: "20px",
           background:
             "rgba(255,255,255,0.2)",
-          backdropFilter: "blur(10px)",
+          backdropFilter:
+            "blur(10px)",
           textAlign: "center",
         }}
       >
@@ -137,7 +159,9 @@ const Add = () => {
 
           <button
             style={backBtn}
-            onClick={() => navigate(-1)}
+            onClick={() =>
+              navigate(-1)
+            }
           >
             ← Back
           </button>
@@ -293,50 +317,82 @@ const Add = () => {
 /* ================= STYLES ================= */
 
 const okBtn = {
+
   marginTop: "10px",
+
   padding: "10px 25px",
+
   border: "none",
+
   borderRadius: "10px",
+
   background: "#28a745",
+
   color: "white",
+
   cursor: "pointer",
+
   fontWeight: "bold",
 };
 
 const inputStyle = {
+
   width: "100%",
+
   padding: "12px",
+
   borderRadius: "10px",
+
   border: "none",
+
   outline: "none",
 };
 
 const saveBtn = {
+
   width: "100%",
+
   padding: "12px",
+
   border: "none",
+
   borderRadius: "10px",
+
   background: "#7928ca",
+
   color: "white",
+
   fontWeight: "bold",
+
   cursor: "pointer",
 };
 
 const backWrap = {
+
   display: "flex",
+
   justifyContent: "flex-start",
+
   marginBottom: "20px",
 };
 
 const backBtn = {
+
   padding: "10px 18px",
+
   border: "none",
+
   borderRadius: "14px",
+
   background:
     "linear-gradient(135deg,#7b2cbf,#c77dff)",
+
   color: "white",
+
   fontWeight: "bold",
+
   cursor: "pointer",
+
   boxShadow:
     "0 6px 16px rgba(0,0,0,0.1)",
 };
